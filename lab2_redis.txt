@@ -1,0 +1,27 @@
+# NoSQL база іншого типу Redis
+# Приклад збереження кешу даних пацієнтів
+
+# Додавання пацієнта в Redis
+SET patient:1:first_name "Петро"
+SET patient:1:last_name "Петренко"
+SET patient:1:balance "1500"
+
+# Читання окремого поля
+GET patient:1:first_name
+GET patient:1:balance
+
+# Оновлення балансу
+SET patient:1:balance "2000"
+
+# Збереження пацієнта як хеш
+HSET patient:2 first_name "Іван" last_name "Іванов" balance "900"
+
+# Отримання всього хешу
+HGETALL patient:2
+
+# Отримання одного поля
+HGET patient:2 balance
+
+# Видалення кешу пацієнта
+DEL patient:1
+DEL patient:2
